@@ -1,37 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="manten.css">
-<title>満点ダイアリー</title>
-</head>
-<body>
-<h2>満点ダイアリー</h2>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" %>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="header.jsp" />
 <center>
 	<table>
-		<tr><td><p>ようこそ　？？さん</p></td></tr>
+		<tr><td><p><c:out value="${userId}" />����</p></td></tr>
 	</table>
 </center>
 <center>
 	<table>
-		<tr><td><h3>メニューとり選んでください</h3></td></tr>
+		<tr><td><h3>���j���[���I��ł�������</h3></td></tr>
 	</table>
 </center>
 <center>
 	<table>
 		<tr>
 			<td>
-				<p class="msr_btn13"><a>日記を入力する</a></p>
-				<p class="msr_btn13"><a>過去の日記を見る</a></p>
-				<p class="msr_btn13"><a>ランキングを見る</a></p>
-				<p class="msr_btn13"><a>ユーザ情報を変更する</a></p>
-				<p class="msr_btn13"><a>ログアウトする</a></p>
+			<form action="MantenDiary" name="form1" method="post">
+				<input type="hidden" name="menu" id="menu" value="input">
+				<p class="msr_btn13" ><a href="javascript:form1.submit()">���L����͂���</a></p>
+			</form>
+				<p class="msr_btn13"><a>�ߋ��̓��L������</a></p>
+				<p class="msr_btn13"><a>�����L���O������</a></p>
+				<p class="msr_btn13"><a>���[�U����ύX����</a></p>
+				<p class="msr_btn13"><a>���O�A�E�g����</a></p>
+
 			</td>
 		</tr>
 	</table>
 </center>
 
-</body>
-</html>
+<jsp:include page="footer.jsp" />

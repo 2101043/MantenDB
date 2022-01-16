@@ -12,13 +12,10 @@ public class LoginCheck {
 	private final String DB_PASS = "2434";
 public boolean loginCheck(User use) {
 	try {
-		if(use.getId() == null || use.getPass() == null) {
 
-			return false;
-		}
 
 		try(Connection conn = DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS)){
-				String sql = "SELECT USERID,USERNAME, PASSWORD, NAME FROM MANTENUSER WHERE USERID = ? AND PASSWORD = ?";
+				String sql = "SELECT * FROM MANTENUSER WHERE USERID = ? AND PASSWORD = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				pStmt.setNString(1,  use.getId());
 				pStmt.setNString(2,  use.getPass());

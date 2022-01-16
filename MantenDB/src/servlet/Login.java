@@ -34,6 +34,11 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(request.getParameter("id") == null) {
+			request.setAttribute("message", "ユーザ名を入力してください");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
+			dispatcher.forward(request, response);
+		}
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 
@@ -42,15 +47,15 @@ public class Login extends HttpServlet {
 		LoginCheck bo = new LoginCheck();
 		boolean result = bo.loginCheck(user);
 
-		if(result == true) {
+		if(result) {
 			HttpSession session = request.getSession();
-			session .setAttribute("loginUser", user);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/loginResult.jsp");
+			session .setAttribute("userId", id);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/TopMenu.jsp");
 			dispatcher.forward(request, response);
 		}
 
 		else {
-			request.setAttribute("message", "IDまたはパスワードが違います");
+			request.setAttribute("message", "UserIDまたはPasswordに誤りがあります");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
 			dispatcher.forward(request, response);
 		}

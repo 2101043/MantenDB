@@ -1,29 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="manten.css">
-<title>æº€ç‚¹ãƒ€ã‚¤ã‚¢ãƒªãƒ¼</title>
-</head>
-<body>
-<h2>æº€ç‚¹ãƒ€ã‚¤ã‚¢ãƒªãƒ¼</h2>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" %>
+<jsp:include page="header.jsp" />
 <center>
 <form action="Login" method="POST">
 <table>
 <tr><td colspan=2>
-	<span class="label label-danger">${message}</span>
-	<h3>ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ãã ã•ã„</h3>
+	<span class="label label-danger" style="color:red">${message}</span>
+	<h3>ƒƒOƒCƒ“‚µ‚Ä‚­‚¾‚³‚¢</h3>
 </td></tr>
 
-<tr><td>UserID</td><td><input type=text id ="id" name="id"></td></tr>
-<tr><td>Password</td><td><input type=password id ="pass" name="pass"></td></tr>
-<tr><td colspan=2></br><center><input type=submit value="ãƒ­ã‚°ã‚¤ãƒ³"></center></td></tr>
+<tr><td>UserID</td><td><input type=text id ="id" name="id"    title="”¼Šp‰p”Žš‚Æ_ˆÈŠO‚Í“ü—Í‚Å‚«‚Ü‚¹‚ñ" required></td></tr>
+<tr><td>Password</td><td><input type=password id ="pass" name="pass"pattern="[a-zA-Z0-9]{1,15}" title="16•¶ŽšˆÈ“à‚Å“ü—Í‚µ‚Ä‰º‚³‚¢" required></td></tr>
+<tr><td colspan=2></br><center><input type=submit value="ƒƒOƒCƒ“"></center></td></tr>
 <tr><td colspan=2></td></tr>
-<tr><td colspan=2></br></br><center><a href="NewUser.jsp">æ–°è¦ç™»éŒ²ã¯ã“ã¡ã‚‰</a></center></td></tr>
+<tr><td colspan=2></br></br><center><a href="/MantenDB/UserEntry">V‹K“o˜^‚Í‚±‚¿‚ç</a></center></td></tr>
 </table>
 </center>
 </form>
-</body>
-</html>
+<jsp:include page="footer.jsp" />
